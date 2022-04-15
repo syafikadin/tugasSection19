@@ -15,8 +15,9 @@
           :to="item.to"
           router
           exact
+          @click="changeCategories(item.title)"
         >
-          <v-list-item-action @click="changeCategories(item.title)">
+          <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
@@ -30,6 +31,13 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <a href="#"><NuxtLogo /></a>
       <v-toolbar-title v-text="title" />
+      <v-spacer></v-spacer>
+      
+      <v-text-field v-model = message></v-text-field>
+
+      <v-btn icon @click="changeCategories(message)">
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -49,6 +57,7 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
+      message: '',
       clipped: false,
       drawer: false,
       fixed: false,
@@ -89,6 +98,7 @@ export default {
     changeCategories(payload){
       this.$store.dispatch('changeCategories', payload)
       this.$store.dispatch('fetchNews')
+      this.message = ''
     }
   }
 }

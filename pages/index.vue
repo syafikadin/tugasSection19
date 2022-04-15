@@ -1,12 +1,6 @@
 <template>
   <v-row>
     <v-col>
-      <ul class="d-flex">
-          <li class="flex" v-for="n in 10" 
-          :key="n">
-          {{ n }}
-          </li>
-      </ul>
       <v-card class="mx-auto" v-for="(itemNews, index) in listNews" :key="index">
         <v-img :src="itemNews.urlToImage" />
         <v-card-title>
