@@ -10,9 +10,7 @@
           <p>{{ itemNews.description }}</p>
         </v-card-text>
         <v-card-actions>
-          <Nuxt-Link :to="'/detailView/id' + index">
-            <v-btn>Read More</v-btn>
-          </Nuxt-Link>
+          <v-btn><a :href="itemNews.url">Read More</a></v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
